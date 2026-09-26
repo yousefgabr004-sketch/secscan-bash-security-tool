@@ -1,0 +1,73 @@
+[+] [FTP Port 21] Anonymous login allowed!
+    Evidence: Successfully authenticated as 'anonymous'
+    Risk: High - Unauthorized users can access or modify files.
+    Recommendation: Disable anonymous login in FTP server configuration.
+
+[+] [SSH Port 22] Service Banner Collected
+    Evidence: 22/tcp   open  ssh         OpenSSH 4.7p1 Debian 8ubuntu1 (protocol 2.0)
+    Risk: Low - Discloses service version details.
+    Recommendation: Restrict access via firewall and keep SSH updated.
+
+[+] [SMTP Port 25] Mail Service Detected
+    Evidence: SMTP service active on port 25
+    Risk: Medium - Potential user enumeration or open relay.
+    Recommendation: Disable VRFY/EXPN commands and configure proper relay rules.
+
+[+] [DNS Port 53] Domain Service Detected
+    Evidence: DNS Service responding on port 53
+    Risk: Low - Discloses internal domain information if zone transfer is enabled.
+    Recommendation: Restrict zone transfers (AXFR) to authorized secondary DNS servers.
+
+[+] [HTTP Port 80] Web Server Detected (HTTP Status: 200)
+    Evidence: HTTP service active with response code 200 (robots.txt not found)
+    Risk: Medium - Exposed web application endpoints.
+    Recommendation: Audit web application for vulnerabilities and secure endpoints.
+
+[+] [SMB Port 139] Samba Service Detected
+    Evidence: SMB Share Info:
+      |     Anonymous access: <none>
+      |   \\192.168.160.129\IPC$: 
+      |     Type: STYPE_IPC
+      --
+      |     Anonymous access: READ/WRITE
+      |   \\192.168.160.129\opt: 
+      |     Type: STYPE_DISKTREE
+      --
+      |     Anonymous access: <none>
+      |   \\192.168.160.129\print$: 
+      |     Type: STYPE_DISKTREE
+      --
+      |     Anonymous access: <none>
+      |   \\192.168.160.129\tmp: 
+      |     Type: STYPE_DISKTREE
+      --
+      |_    Anonymous access: READ/WRITE
+      
+      Nmap done: 1 IP address (1 host up) scanned in 4.90 seconds
+    Risk: High - SMB misconfigurations can lead to unauthorized share access.
+    Recommendation: Disable guest access and restrict SMB permissions.
+
+[+] [SMB Port 445] Samba Service Detected
+    Evidence: SMB Share Info:
+      |     Anonymous access: <none>
+      |   \\192.168.160.129\IPC$: 
+      |     Type: STYPE_IPC
+      --
+      |     Anonymous access: READ/WRITE
+      |   \\192.168.160.129\opt: 
+      |     Type: STYPE_DISKTREE
+      --
+      |     Anonymous access: <none>
+      |   \\192.168.160.129\print$: 
+      |     Type: STYPE_DISKTREE
+      --
+      |     Anonymous access: <none>
+      |   \\192.168.160.129\tmp: 
+      |     Type: STYPE_DISKTREE
+      --
+      |_    Anonymous access: READ/WRITE
+      
+      Nmap done: 1 IP address (1 host up) scanned in 4.88 seconds
+    Risk: High - SMB misconfigurations can lead to unauthorized share access.
+    Recommendation: Disable guest access and restrict SMB permissions.
+
